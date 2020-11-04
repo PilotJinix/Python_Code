@@ -26,6 +26,8 @@
 # print(orang3.cek())
 # print(orang4.cek())
 
+
+
 class Elektronik:
 
     flashdisk_32_GB = 80000
