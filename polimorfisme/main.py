@@ -1,3 +1,4 @@
+## Overriding
 # class Person:
 #     def __init__(self, name, age):
 #         self.nama = name
@@ -21,11 +22,9 @@
 #
 # print(orang1.show())
 
+
+# Overloding
 class Kalkulate:
-    # def __init__(self, X=None, Y=None, Z=None):
-    #     self.x = X
-    #     self.y = Y
-    #     self.z = Z
 
     def mennghitung (X=None, Y=None, Z=None):
         result= 0
