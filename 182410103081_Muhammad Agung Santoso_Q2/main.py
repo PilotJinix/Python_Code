@@ -15,7 +15,7 @@ title_dilation_window = 'Dilation'
 
 def main(image):
     global src
-    src = cv.imread("image2.JPG")
+    src = cv.imread("image1.JPG")
     if src is None:
         print('Could not open or find the image: ', image)
         exit(0)
@@ -25,8 +25,8 @@ def main(image):
     cv.namedWindow(title_dilation_window)
     cv.createTrackbar(title_trackbar_element_shape, title_dilation_window, 0, max_elem, dilatation)
     cv.createTrackbar(title_trackbar_kernel_size, title_dilation_window, 0, max_kernel_size, dilatation)
-    erosion(0)
-    dilatation(0)
+    erosion(1)
+    dilatation(1)
     opening()
     closing()
     cv.waitKey()
@@ -53,7 +53,7 @@ def erosion(val):
     cv.imshow(title_erosion_window, erosion_dst)
 
 
-def dilatation(val):
+def dilatation(val=1):
     dilatation_size = cv.getTrackbarPos(title_trackbar_kernel_size, title_dilation_window)
     dilation_shape = morph_shape(cv.getTrackbarPos(title_trackbar_element_shape, title_dilation_window))
     element = cv.getStructuringElement(dilation_shape, (2 * dilatation_size + 1, 2 * dilatation_size + 1),
@@ -65,14 +65,14 @@ def dilatation(val):
 kernelSizes = [(3,3)]
 def opening():
     for kernelSize in kernelSizes:
-        kernel = cv.getStructuringElement(cv.MORPH_RECT, kernelSize)
+        kernel = cv.getStructuringElement(cv.MORPH_CROSS, kernelSize)
         opening = cv.morphologyEx(src, cv.MORPH_OPEN, kernel)
-        cv.imshow(f"Opening : ({kernelSize[0]}", opening)
+        cv.imshow(f"Opening : {kernelSize[0]}", opening)
         cv.waitKey(20)
 
 def closing():
     for kernelSize in kernelSizes:
-        kernel = cv.getStructuringElement(cv.MORPH_RECT, kernelSize)
+        kernel = cv.getStructuringElement(cv.MORPH_CROSS, kernelSize)
         opening = cv.morphologyEx(src, cv.MORPH_CLOSE, kernel)
         cv.imshow(f"Closing : ({kernelSize[0]}", opening)
         cv.waitKey(20)
