@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import cv2
-import pandas
+import pandas as pd
 import arff
 import seaborn as sns
 from os import listdir
@@ -19,7 +19,7 @@ def getDataTekstur(img_path):
         symmetric=True,
         normed=False
     )
-    cont = greycoprops(glcm, "Contrast")[0, 0]
+    cont = greycoprops(glcm, "contrast")[0, 0]
     diss = greycoprops(glcm, "dissimilarity")[0, 0]
     homo = greycoprops(glcm, "homogeneity")[0, 0]
     eng = greycoprops(glcm, "energy")[0, 0]
@@ -28,3 +28,35 @@ def getDataTekstur(img_path):
     return [cont, diss, homo, eng, corr, ASM]
 
 arr_dir = ["bata", "kayu"]
+fnames = []
+for a in range(len(arr_dir)):
+    arr_tmp = [f for f in listdir(arr_dir[a]) if isfile(join(arr_dir[a], f ))]
+    fnames.append(arr_tmp)
+
+df = pd.DataFrame(columns = ["cont", "diss", "home", "eng", "corr", "ASM", "class"])
+baris = 0
+for i in range (len(arr_dir)):
+    for j in range (len(fnames[i])):
+        print(arr_dir[i] + "/" + fnames[i][j])
+        avg = getDataTekstur(arr_dir[i] + "/" + fnames[i][j])
+        print(avg)
+        cont, diss, home, eng, corr, ASM = avg[0], avg[1], avg[2], avg[3], avg[4], avg[5]
+        rows_list = [cont, diss, home, eng, corr, ASM, arr_dir[i]]
+        df.loc[baris] = rows_list
+        baris =baris + 1
+
+cv2.waitKey(20)
+
+print(df)
+df.to_csv("data.csv", index = False, header = True)
+
+arff.dump(
+    "data.arff",
+    df.values,
+    relation = "Ekstraksi Warna Buah Mangga dan Salak",
+    names = df.columns
+)
+
+g = sns.pairplot(df[["cont", "diss", "home", "eng", "corr", "ASM", "class"]], hue = "class", diag_kind = "hist")
+
+plt.show()
