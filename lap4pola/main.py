@@ -14,8 +14,8 @@ def getDataTekstur(img_path):
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     glcm = greycomatrix(
         gray,
-        distances=[1, 2],
-        angles=[0, np.pi/4, np.pi/2, 3*np.pi/4],
+        distances=[1],
+        angles=[3 * np.pi / 4],
         symmetric=True,
         normed=False
     )
