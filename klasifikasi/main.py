@@ -69,7 +69,7 @@ print(conf_matrix)
 plt.clf()
 plt.imshow(conf_matrix, interpolation='nearest', cmap=plt.cm.Wistia)
 classNames = ['Negative', 'Positive']
-plt.title('Confusion Matrix Testing Data, Kelas bata atau kayu')
+plt.title('Confusion Matrix Testing Data, Kelas Jambu atau Nangka')
 plt.ylabel('True label')
 plt.xlabel('Predicted label')
 tick_marks = np.arange(len(classNames))

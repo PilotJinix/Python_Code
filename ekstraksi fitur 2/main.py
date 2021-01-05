@@ -20,7 +20,7 @@ from scipy import stats
 #     return [modus, median, rentang, euclidean]
 #
 # # list directory
-# arr_dir = ['bata', 'kayu']
+# arr_dir = ['jambu', 'nangka']
 # fnames = []
 # for a in range(len(arr_dir)):
 #     # get all files name
@@ -66,7 +66,7 @@ def getDataTekstur(img_path):
     return [mean, stdev, variance ]
 
 # list directory
-arr_dir = ['bata','kayu']
+arr_dir = ['jambu','nangka']
 fnames = []
 for a in range(len(arr_dir)):
     # get all files name
