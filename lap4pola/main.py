@@ -27,7 +27,7 @@ def getDataTekstur(img_path):
     ASM = greycoprops(glcm, "ASM")[0, 0]
     return [cont, diss, homo, eng, corr, ASM]
 
-arr_dir = ["jambu", "nangka"]
+arr_dir = ["Mango", "Salak"]
 fnames = []
 for a in range(len(arr_dir)):
     arr_tmp = [f for f in listdir(arr_dir[a]) if isfile(join(arr_dir[a], f ))]

@@ -9,7 +9,7 @@ from sklearn.metrics import confusion_matrix
 # https://tatwan.github.io/How-To-Plot-A-Confusion-Matrix-In-Python/
 
 # read data
-df = pd.read_csv('data.csv')  # data hasil ekstraksi fitur praktikum
+df = pd.read_csv('data1.csv')  # data hasil ekstraksi fitur praktikum
 # check data has been read in properly
 df.head()
 
@@ -69,7 +69,7 @@ print(conf_matrix)
 plt.clf()
 plt.imshow(conf_matrix, interpolation='nearest', cmap=plt.cm.Wistia)
 classNames = ['Negative', 'Positive']
-plt.title('Confusion Matrix Testing Data, Kelas Jambu atau Nangka')
+plt.title('Confusion Matrix Testing Data, Kelas Bata atau Kayu')
 plt.ylabel('True label')
 plt.xlabel('Predicted label')
 tick_marks = np.arange(len(classNames))
