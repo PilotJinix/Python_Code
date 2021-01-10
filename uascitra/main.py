@@ -152,44 +152,59 @@ import pandas as pd
 
 #membuat fungsi fitur 1
 def fitur1(img_path):
-
+    # membaca file pada parameter
     img = cv2.imread(img_path)
+    # menduplicate gambar asli
     imgCopy = img.copy()
 
     # nilai threshold
     bbr, bbg, bbb = 150,150,0 # batas bawah
     bar, bag, bab = 255,255,255 # batas atas
 
+    # membuat satuan rbg untuk batas bawah agar satuan lebih detail
     batas_bawah = np.array((bbr, bbg, bbb), np.uint8)
     batas_atas = np.array((bar, bag, bab), np.uint8)
+
+    # membuat thresholding pada inmage dengan batas bawah dan atas serta membuat biner
     img_threshold = cv2.inRange(imgCopy, batas_bawah, batas_atas, cv2.THRESH_BINARY)
 
+    # mengatur size yang terlah dithresholding
     gambarthresholding = cv2.resize(img_threshold, (300,300))
 
+    # membuat kernel
     kernel = np.ones((5,5),np.uint8)
+    #membuat erosi dengan kernel
     erosi = cv2.erode(gambarthresholding,kernel)
+    # membuat dilasi dengan kernel
     dilasi = cv2.dilate(gambarthresholding,kernel)
 
-    # cek image
+    # show gambar thresholding
     cv2.imshow('Gambar Thresholding', gambarthresholding)
+    # show gambar erosi
     cv2.imshow('Gambar Erosi' , erosi)
+    # show gambar dilasi
     cv2.imshow('Gambar Dilasi' , dilasi)
+    # show gambar asli
     cv2.imshow('Gambar' , img)
 
 
 # list directory
 arr_dir = ['nangka']
 fnames = []
+
+# perulanngan untuk menghitung jumlah data yang asli
 for a in range(len(arr_dir)):
     # get all files name
     arr_tmp = [f for f in listdir(arr_dir[a]) if isfile(join(arr_dir[a],f))]
+    # memasukkan file kedalam array fnames
     fnames.append(arr_tmp)
 
+# eksekusi File per file sebanyak jumlah data
 for i in range(len(arr_dir)):
     for j in range(len(fnames[i])):
         print(arr_dir[i]+'/'+fnames[i][j])
         avg = fitur1(arr_dir[i]+'/'+fnames[i][j])
-        cv2.waitKey(1000)
+        cv2.waitKey(0)
 
 
 # ===============Erosi Dilasi========================
