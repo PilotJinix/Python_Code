@@ -151,7 +151,7 @@ import pandas as pd
 # cv2.destroyAllWindows()
 
 
-def getRata2BGR(img_path):
+def fitur1(img_path):
     img = cv2.imread(img_path)
     imgCopy = img.copy()
 
@@ -163,10 +163,16 @@ def getRata2BGR(img_path):
     batas_atas = np.array((bar, bag, bab), np.uint8)
     img_threshold = cv2.inRange(imgCopy, batas_bawah, batas_atas, cv2.THRESH_BINARY)
 
-    gambarthresholding = cv2.resize(img_threshold, (512,512))
+    gambarthresholding = cv2.resize(img_threshold, (300,300))
+
+    kernel = np.ones((5,5),np.uint8)
+    erosi = cv2.erode(gambarthresholding,kernel)
+    dilasi = cv2.dilate(gambarthresholding,kernel)
 
     # cek image
     cv2.imshow('Gambar Thresholding', gambarthresholding)
+    cv2.imshow('Gambar Erosi', erosi)
+    cv2.imshow('Gambar Dilasi', dilasi)
     cv2.imshow('Gambar', img)
 
 
@@ -181,7 +187,7 @@ for a in range(len(arr_dir)):
 for i in range(len(arr_dir)):
     for j in range(len(fnames[i])):
         print(arr_dir[i]+'/'+fnames[i][j])
-        avg = getRata2BGR(arr_dir[i]+'/'+fnames[i][j])
+        avg = fitur1(arr_dir[i]+'/'+fnames[i][j])
         cv2.waitKey(1000)
 
 
