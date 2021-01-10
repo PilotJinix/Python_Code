@@ -150,8 +150,9 @@ import pandas as pd
 # cv2.waitKey(0)
 # cv2.destroyAllWindows()
 
-
+#membuat fungsi fitur 1
 def fitur1(img_path):
+
     img = cv2.imread(img_path)
     imgCopy = img.copy()
 
