@@ -171,9 +171,9 @@ def fitur1(img_path):
 
     # cek image
     cv2.imshow('Gambar Thresholding', gambarthresholding)
-    cv2.imshow('Gambar Erosi', erosi)
-    cv2.imshow('Gambar Dilasi', dilasi)
-    cv2.imshow('Gambar', img)
+    cv2.imshow('Gambar Erosi' , erosi)
+    cv2.imshow('Gambar Dilasi' , dilasi)
+    cv2.imshow('Gambar' , img)
 
 
 # list directory
@@ -189,7 +189,6 @@ for i in range(len(arr_dir)):
         print(arr_dir[i]+'/'+fnames[i][j])
         avg = fitur1(arr_dir[i]+'/'+fnames[i][j])
         cv2.waitKey(1000)
-
 
 
 # ===============Erosi Dilasi========================
