@@ -15,8 +15,6 @@ def getRata2BGR(img_path):
     h,w,ch = img.shape[:]
     imgCopy = img.copy()
 
-
-
     # nilai threshold
     bbr, bbg, bbb = 0,0,0 # batas bawah
     bar, bag, bab = 200,200,200 # batas atas
@@ -46,7 +44,6 @@ def getRata2BGR(img_path):
 arr_dir = ['jambu','nangka']
 fnames = []
 for a in range(len(arr_dir)):
-
     # get all files name
     arr_tmp = [f for f in listdir(arr_dir[a]) if isfile(join(arr_dir[a],f))]
     fnames.append(arr_tmp)
