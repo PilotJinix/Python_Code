@@ -150,6 +150,24 @@ import pandas as pd
 # cv2.waitKey(0)
 # cv2.destroyAllWindows()
 
+
+# ===============Erosi Dilasi========================
+# img = cv2.imread('40.png',0)
+# ret,thresh1 = cv2.threshold(img,128,255,cv2.THRESH_BINARY)
+#
+# img = cv2.resize(thresh1, (300,400))
+#
+# kernel = np.ones((5,5),np.uint8)
+# erosi = cv2.erode(img,kernel,iterations = 3)
+# dilasi = cv2.dilate(img,kernel,iterations = 3)
+#
+# cv2.imshow('src', img)
+# cv2.imshow('erosi', erosi)
+# cv2.imshow('dilasi', dilasi)
+# cv2.waitKey(0)
+
+
+
 #membuat fungsi fitur 1
 def fitur1(img_path):
     # membaca file pada parameter
@@ -207,17 +225,3 @@ for i in range(len(arr_dir)):
         cv2.waitKey(0)
 
 
-# ===============Erosi Dilasi========================
-# img = cv2.imread('40.png',0)
-# ret,thresh1 = cv2.threshold(img,128,255,cv2.THRESH_BINARY)
-#
-# img = cv2.resize(thresh1, (300,400))
-#
-# kernel = np.ones((5,5),np.uint8)
-# erosi = cv2.erode(img,kernel,iterations = 3)
-# dilasi = cv2.dilate(img,kernel,iterations = 3)
-#
-# cv2.imshow('src', img)
-# cv2.imshow('erosi', erosi)
-# cv2.imshow('dilasi', dilasi)
-# cv2.waitKey(0)
