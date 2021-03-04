@@ -44,8 +44,8 @@ print("Hasilnya adalah = ", array[len(array) - 1] - array[0])
 # for i <- 0 to inptuser do
 #   Input: append input from user to array as much intpruser
 #
-# for j <- 0 to n do
-#   for k <- 0 to n do
+# for j <- 0 to n-1 do
+#   for k <- 0 to n-1 do
 #       if array[k] > array[k + 1] return array[k], array[k + 1] = array[k + 1], array[k]
 #       else retrun false
 # return array[len(array) - 1] - array[0]
