@@ -132,10 +132,8 @@ class MyFrame3 ( wx.Frame ):
 
 		bSizer7.Add( self.m_staticText9, 0, wx.ALL, 5 )
 
-		self.resultdata = wx.StaticText( self.m_panel2, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.DefaultSize, 0 )
-		self.resultdata.Wrap( -1 )
-
-		bSizer7.Add( self.resultdata, 0, wx.ALL, 5 )
+		self.resultdata = wx.TextCtrl( self.m_panel2, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.DefaultSize, 0 )
+		bSizer7.Add( self.resultdata, 0, wx.ALL, 0 )
 
 
 		bSizer6.Add( bSizer7, 1, wx.ALL, 50 )

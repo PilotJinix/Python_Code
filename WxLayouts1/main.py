@@ -32,14 +32,9 @@ class Calculate(helloWxGui.MyFrame3):
             data2 = self.bil2_text.GetValue()
             result = int(data1) + int(data2)
             print(result)
-            self.resultdata = result
+            self.resultdata.SetValue(str(result))
         except Exception:
             print("Error")
-
-
-
-
-
 
 app = wx.App()
 # frame = Splashscreen(None)
