@@ -63,3 +63,26 @@ bin(int(input("Masukkan Pangkat = ")))[2:][::-1]))
 #
 # print(binaryexponentiation(int(input("Masukkan Konstanta = ")),
 # bin(int(input("Masukkan Pangkat = ")))[2:][::-1]))
+
+
+# Azizah mintol
+# def awalan(input):
+#     data = input.split()
+#     temp = []
+#     temp2 = []
+#     for i in range(len(data)):
+#         if i == 0:
+#             temp.append(data[i].lower())
+#         else:
+#             temp.append(data[i].title())
+#
+#     x = "".join(temp)
+#     for i in range(len(x)):
+#         if x[i].isalnum()== True:
+#             temp2.append(x[i])
+#
+#     result = "".join(temp2)
+#
+#     return result
+#
+# print(awalan(input()))
