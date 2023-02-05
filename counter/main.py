@@ -1,7 +1,6 @@
 import wx
 import datacounter
 
-
 class subClass(datacounter.MyFrame2):
     def __init__(self, parent):
         datacounter.MyFrame2.__init__(self, parent)
